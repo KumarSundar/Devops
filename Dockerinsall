@@ -1,0 +1,14 @@
+echo "Update package repository"
+sudo apt update
+echo "Install pre-required package"
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+echo"Add GPG Key"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+echo"Add Docker Repository"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+echo "Specify Insallation Source"
+apt-cache policy docker-ce
+echo "Install Docker"
+sudo apt install docker-ce -y
+echo "Check Docker Status"
+sudo systemctl status docker
